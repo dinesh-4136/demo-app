@@ -1,14 +1,14 @@
-name: CI - Docker Build
+name: CI - Docker Build and Test
 
 on:
 push:
-  branches:
-    - main
+  branches: [main]
 pull_request:
+  branches: [main]
 
 jobs:
-  build:
-    runs-on: ubuntu:latest
+  build-and-test:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -22,8 +22,14 @@ jobs:
       - name: Install depedencies
         run: npm install
 
-      - name: Run app test(optional)
-        run: echo "No tests yet..."
+      - name: Run unit test
+        run: npm test
+
+      - name: Run linter
+        run: npm run lint
+
+      - name: Generate code coverage
+        run: npm run test -- --coverage
 
       - name: Build Docker Image
         run: docker build -t demo-app .
