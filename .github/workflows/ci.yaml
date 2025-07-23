@@ -1,17 +1,10 @@
 name: CI - Docker Build and Test
 
 on:
-<<<<<<< HEAD
-push:
-  branches: [main]
-pull_request:
-  branches: [main]
-=======
   push:
     branches: [main]
   pull_request:
     branches: [main]
->>>>>>> dfbb2ce1212e072d99d7701bb779dbe096e88b0c
 
 jobs:
   build-and-test:
