@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Run app test(optional)
-        run: npm test
+        run: echo "No tests yet..."
 
       - name: Build Docker Image
         run: docker build -t demo-app .
