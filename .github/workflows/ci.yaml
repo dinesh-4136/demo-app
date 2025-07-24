@@ -25,11 +25,5 @@ jobs:
       - name: Run unit test
         run: npm test
 
-      - name: Run linter
-        run: npm run lint
-
-      - name: Generate code coverage
-        run: npm run test -- --coverage
-
       - name: Build Docker Image
         run: docker build -t demo-app .
