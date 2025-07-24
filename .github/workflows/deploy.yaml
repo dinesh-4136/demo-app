@@ -18,7 +18,7 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        uses: npm install
+        run: npm install
 
       - name: Run tests
         run: npm test
@@ -29,7 +29,7 @@ jobs:
       - name: Build Docker Image
         run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/demo-app:latest .
 
-      - name: Psuh Docker Image
+      - name: Push Docker Image
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/demo-app:latest
 
       - name: Deploy to EC2
